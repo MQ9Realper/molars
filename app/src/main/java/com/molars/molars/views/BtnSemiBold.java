@@ -42,7 +42,7 @@ public class BtnSemiBold extends AppCompatButton {
         try {
             if (typeface == null) {
                 typeface = Typeface.createFromAsset(ctx.getAssets(),
-                        "fonts/Muli-SemiBold.ttf");
+                        "fonts/Muli-Bold.ttf");
             }
 
         } catch (Exception e) {

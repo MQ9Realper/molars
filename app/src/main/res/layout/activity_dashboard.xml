@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorWhite"
     android:orientation="vertical"
     tools:context="com.molars.molars.activities.DashboardActivity">
 
     <ImageView
+        android:id="@+id/logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
         android:contentDescription="@string/app_name"
         android:src="@drawable/logo_molars_2" />
 
@@ -19,7 +20,21 @@
         android:id="@+id/listMenu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/btnBookAppointment"
+        android:layout_below="@+id/logo"
         android:layout_margin="10dp"
         android:background="@drawable/drawable_dashboard_background" />
 
-</LinearLayout>
+    <com.molars.molars.views.BtnSemiBold
+        android:id="@+id/btnBookAppointment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/drawable_buttons_background"
+        android:text="@string/string_book_appointment"
+        android:textAllCaps="false"
+        android:textColor="@color/colorWhite"
+        android:textSize="14sp" />
+
+</RelativeLayout>
