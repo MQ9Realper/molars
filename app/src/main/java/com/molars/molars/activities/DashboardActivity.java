@@ -1,6 +1,7 @@
 package com.molars.molars.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -13,20 +14,34 @@ import android.view.View;
 import com.molars.molars.R;
 import com.molars.molars.adapters.MainMenuAdapter;
 import com.molars.molars.models.Menu;
+import com.molars.molars.views.BtnSemiBold;
 
 import java.util.ArrayList;
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity implements View.OnClickListener {
     private ArrayList<Menu> menus;
+    private BtnSemiBold btnBookAppointment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        initViews();
+
+        initListeners();
+
         initMenuItems();
 
         initMenu();
+    }
+
+    private void initViews() {
+        btnBookAppointment = (BtnSemiBold) findViewById(R.id.btnBookAppointment);
+    }
+
+    private void initListeners() {
+        btnBookAppointment.setOnClickListener(this);
     }
 
     private void initMenuItems() {
@@ -50,6 +65,31 @@ public class DashboardActivity extends AppCompatActivity {
         listMenu.addOnItemTouchListener(new RecyclerTouchListener(this, listMenu, new ClickListener() {
             @Override
             public void onClick(View view, final int position) {
+                switch (position) {
+                    case 0:
+                        startActivity(AboutUsActivity.class);
+                        break;
+                    case 1:
+                        startActivity(ServicesActivity.class);
+                        break;
+                    case 2:
+                        startActivity(SuccessStoriesActivity.class);
+                        break;
+                    case 3:
+                        startActivity(VideosActivity.class);
+                        break;
+                    case 4:
+                        startActivity(ContactUsActivity.class);
+                        break;
+                    case 5:
+                        startActivity(LocationActivity.class);
+                        break;
+                    case 6:
+                        startActivity(TeamActivity.class);
+                        break;
+                    default:
+                        break;
+                }
 
             }
 
@@ -60,6 +100,11 @@ public class DashboardActivity extends AppCompatActivity {
         }));
 
         listMenu.setAdapter(menuAdapter);
+    }
+
+    private void startActivity(Class<?> destination_class) {
+        Intent intent = new Intent(DashboardActivity.this, destination_class);
+        startActivity(intent);
     }
 
     /**
@@ -124,6 +169,17 @@ public class DashboardActivity extends AppCompatActivity {
         @Override
         public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
 
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnBookAppointment:
+                startActivity(BookAppointmentActivity.class);
+                break;
+            default:
+                break;
         }
     }
 }
