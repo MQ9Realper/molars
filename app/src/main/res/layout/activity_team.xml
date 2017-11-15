@@ -10,6 +10,23 @@
 
     <include
         android:id="@+id/toolbarTeam"
-        layout="@layout/layout_toolbar"/>
+        layout="@layout/layout_toolbar" />
+
+    <com.molars.molars.views.EdtLight
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edittext_background"
+        android:hint="@string/hint_search_team"
+        android:padding="8dp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/listTeam"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:background="@drawable/drawable_dashboard_background" />
 
 </LinearLayout>
